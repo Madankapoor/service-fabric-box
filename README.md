@@ -1,6 +1,8 @@
 # Service Fabric Box
 This is a local setup using Vagrant for running an [Azure Service Fabric](https://azure.microsoft.com/en-us/services/service-fabric/) cluster with an insecure private network on a set of computers running Windows Server. The configuration follows the [instructions](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-cluster-creation-for-windows-server/) for setting up an on-premise cluster. The setup is tested with boxes running Windows Server 2016 TP5 and Windows Server 2012 R2.
 
+For this example you will need to Windows Server key (register for an evaluation copy [here](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview)), [Vagrant](https://www.vagrantup.com/), [Packer](https://www.packer.io/) and [VirtualBox](https://www.virtualbox.org/). Optionally you need to prepare your local [development environment for Service Fabric](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-get-started/) if you wish to run Powershell commands against the cluster or deploy apps.
+
 ## The cluster config
 The cluster configuration is based on the file ClusterConfig.Unsecure.MultiMachine.json from the [Windows Server package](http://go.microsoft.com/fwlink/?LinkID=733084) with IP addresses added for the initial nodes. 
 
@@ -15,7 +17,6 @@ The cluster consists of three VM's and a fourth VM set up for joining the runnin
 | vm3 | 192.168.38.103 | Ready to join   |
 ## Get the base box
 Follow the instructions at [StefanScherer/docker-windows-box](https://github.com/StefanScherer/docker-windows-box) to create the base box for either Windows Server 2016 TP5 or Windows Server 2012 R2 or both.
-
 To build the base box for Windows Server 2016 TP5 you have to run these commands on your host machine:
 ```
 git clone https://github.com/StefanScherer/packer-windows
